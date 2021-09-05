@@ -55,7 +55,7 @@ class PlaceholderFragment : Fragment() {
 
 
 
-        loadGIF("android.resource://com.example.nikulsheev/drawable/test")
+        loadGIF("android.resource://com.example.nikulsheev/drawable/jumpingarrow")
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://developerslife.ru/")
@@ -87,9 +87,15 @@ class PlaceholderFragment : Fragment() {
     }
 
     private fun loadGIF(url : String?){
+        //Glide.with(this).load(url)
+        //    .placeholder(R.drawable.load)
+        //    .error(R.drawable.test).into(_binding!!.gifHolder)
+
         Glide.with(this).load(url)
-            .placeholder(R.drawable.load)
-            .error(R.drawable.test).into(_binding!!.gifHolder)
+            .thumbnail(Glide.with(this).load(R.drawable.load))
+            .fitCenter()
+            .error(R.drawable.error)
+            .into(_binding!!.gifHolder);
 
     }
 
