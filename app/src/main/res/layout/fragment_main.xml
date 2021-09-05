@@ -20,4 +20,10 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
+
+        <ImageView
+            android:id="@+id/gifHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
