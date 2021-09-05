@@ -5,8 +5,9 @@
       <map>
         <entry key="..\:/Users/aniku/AndroidStudioProjects/nikulsheev/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/aniku/AndroidStudioProjects/nikulsheev/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
-        <entry key="..\:/Users/aniku/AndroidStudioProjects/nikulsheev/app/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
-        <entry key="..\:/Users/aniku/AndroidStudioProjects/nikulsheev/app/src/main/res/layout/fragment_main.xml" value="0.152" />
+        <entry key="..\:/Users/aniku/AndroidStudioProjects/nikulsheev/app/src/main/res/drawable/rounded.xml" value="0.2546875" />
+        <entry key="..\:/Users/aniku/AndroidStudioProjects/nikulsheev/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/aniku/AndroidStudioProjects/nikulsheev/app/src/main/res/layout/fragment_main.xml" value="0.2" />
       </map>
     </option>
   </component>

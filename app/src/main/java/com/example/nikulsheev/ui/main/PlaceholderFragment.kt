@@ -53,10 +53,7 @@ class PlaceholderFragment : Fragment() {
 
 
 
-        val textView: TextView = binding.sectionLabel
-        pageViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
 
         loadGIF("android.resource://com.example.nikulsheev/drawable/test")
 
