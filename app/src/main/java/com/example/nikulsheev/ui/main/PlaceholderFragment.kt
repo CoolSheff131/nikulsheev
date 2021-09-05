@@ -51,6 +51,8 @@ class PlaceholderFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root = binding.root
 
+
+
         val textView: TextView = binding.sectionLabel
         pageViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
@@ -64,7 +66,9 @@ class PlaceholderFragment : Fragment() {
             .build()
         val service : EchoController = retrofit.create(EchoController::class.java)
         val call: Call<gif> = service.test(true)
-        call.enqueue(object :Callback<gif>{
+        _binding!!.btnNext.setOnClickListener {
+
+        call.clone().enqueue(object :Callback<gif>{
             override fun onFailure(call: Call<gif>, t: Throwable) {
 
                 Log.v("MYTAG","fail")
@@ -80,11 +84,16 @@ class PlaceholderFragment : Fragment() {
                 }
             }
         })
+        }
+
         return root
     }
 
     private fun loadGIF(url : String?){
-        Glide.with(this).load(url).into(_binding!!.gifHolder)
+        Glide.with(this).load(url)
+            .placeholder(R.drawable.load)
+            .error(R.drawable.test).into(_binding!!.gifHolder)
+
     }
 
     companion object {
