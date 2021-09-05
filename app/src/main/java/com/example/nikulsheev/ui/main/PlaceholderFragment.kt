@@ -49,13 +49,7 @@ class PlaceholderFragment : Fragment() {
         pageViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-
-        val imageView: ImageView? = activity?.findViewById(R.id.gifHolder)
-        if (imageView != null) {
-            Glide.with(this).load(R.drawable.test).into(imageView)
-            Log.v("MYTAG", "not null")
-        }
-
+        Glide.with(this).load(R.drawable.test).into(_binding!!.gifHolder)
         return root
     }
 
