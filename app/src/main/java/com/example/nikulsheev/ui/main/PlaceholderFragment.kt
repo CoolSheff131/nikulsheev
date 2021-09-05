@@ -15,6 +15,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.nikulsheev.R
 import com.example.nikulsheev.databinding.FragmentMainBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * A placeholder fragment containing a simple view.
@@ -52,6 +57,29 @@ class PlaceholderFragment : Fragment() {
         })
 
         loadGIF("android.resource://com.example.nikulsheev/drawable/test")
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://developerslife.ru/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service : EchoController = retrofit.create(EchoController::class.java)
+        val call: Call<gif> = service.test(true)
+        call.enqueue(object :Callback<gif>{
+            override fun onFailure(call: Call<gif>, t: Throwable) {
+
+                Log.v("MYTAG","fail")
+            }
+
+            override fun onResponse(call: Call<gif>, response: Response<gif>) {
+                Log.v("MYTAG","success")
+                val gif:gif? = response.body()
+
+                if (gif != null) {
+                    Log.v("MYTAG",gif.gifURL)
+                    loadGIF(gif.gifURL)
+                }
+            }
+        })
         return root
     }
 
