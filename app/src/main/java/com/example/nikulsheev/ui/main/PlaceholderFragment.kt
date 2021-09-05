@@ -1,6 +1,7 @@
 package com.example.nikulsheev.ui.main
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -49,8 +50,13 @@ class PlaceholderFragment : Fragment() {
         pageViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        Glide.with(this).load(R.drawable.test).into(_binding!!.gifHolder)
+
+        loadGIF("android.resource://com.example.nikulsheev/drawable/test")
         return root
+    }
+
+    private fun loadGIF(url : String?){
+        Glide.with(this).load(url).into(_binding!!.gifHolder)
     }
 
     companion object {
